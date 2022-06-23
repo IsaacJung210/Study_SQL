@@ -1,0 +1,13 @@
+conda create -n bku python=3.7
+conda env list
+conda activate isaac
+conda install ipykernel
+python -m ipykernel install --user --name bku
+cd\
+mkdir python_work
+cd python_work
+jupyter lab --NotebookApp.password='' --NotebookApp.token=''
+
+
+pip install Flask
+pip install django

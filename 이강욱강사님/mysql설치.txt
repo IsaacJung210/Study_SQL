@@ -1,0 +1,198 @@
+20220210 DB 리눅스 노트
+1. 언어(서버 상관없었음) 클라이언트에서 사용
+2. 서버(지금 하는거)
+많이 쓰는 DB: sql 관계형 DB...오라클(비싸서 기업에서 안 씀)
+DB: 성능, 안정성 = 은행, 일반인무료판my sql (+ 오라클 둘다 배울거)
+DB: CRUD create reading update delete
+lo sql: 다른게 필요하니 설명만 함
+
+--------------
+예전엔 코더, 시스템엔지니어(리눅스), DB, 소프트웨어/하드웨어 엔지니어 등 나웠는데 
+지금은 풀스텍원함: 벤처 붐
+100개 벤처 중 3개 기업만 성공해도 성공으로 봄. 지금은 강소기업 많이 늘었음
+개발+오퍼레이터=풀스텍
+기업은 그냥 필요로하고 케어 안해줌 = 몸값 좋은 곳 택해라
+풀스택으로 자라면 여러곳 일하면서 본인이 성장
+넓게 아는게 깊게 아는거다 
+
+폴리글랏: 여러 언어 쓰는 거
+
+풀스택하면 일 다양하게 뽑아도 뭐든 할 수 있
+
+옛날엔 DB바뀌면 개발 한것도 바꿔야 했는데 지금은 풀스택하면서 개인이 알아서 가능
+
+목표는 풀스택개발자
+
+하나씩 하면서 쌓아나가라
+--------------------
+
+코더>분석가>
+실력이 곧 몸값
+어느순간 배으ㅝㄲ단ㄱ[ +더;ㅁ
+상상이상으로 번다
+과제 프로벡트 일 많이함
+
+이해가 안가도 해라
+
+데브옵: 주기 짧다
+
+>>>터미널 접속
+우분투: 개인용, ssh를 설치 다시해야 
+지금 하는건(Putty) 바로 가능
+root는 막강한 권한 
+비번이 중요(비번 뚫리면 다 뚫려서 일반적으로 잘 안 씀) 
+루트를 다른 걸로 바꾸는게 중요
+
+>권한주고 바꾸기
+버츄얼박스 실행해서 시작하고 두기
+푸티 실행해서 root, 비번 입력해서 접속
+
+cd (자기자신)
+adduser 만들이름
+ls (리스트)
+cd /home (파라미터 /명령어)# 띄워써야 명령어로 인식을 안함. 한꺼번에 쓰면 파라미터로 인식해서 작동ㄴㄴ 
+ls (이름이 리스트에 추가 되어있음 확인)
+cd jhyu 
+ls (anaconda-ks.cfg가 뜸)
+cd
+adduser bigdata
+cd /home
+ll
+(만든 목록 뜸)
+---------------------------------(쉬는시간)
+ls -al sudoers
+chmod +w sudoers  #chmod 명령은 파일의 모드(mode)를 변경하는 명령
+sudo yum install wget  
+
+###Super User Do, Substitute User DO(다른 사용자의 권한으로 실행)
+###Yum은 Yellow dog Update
+###'Web Get'의 약어로 웹 상의 파일을 다운로드 받을 때 사용하는 명령어
+
+
+
+-----------------------------------()
+ls
+복붙
+wget깔고 
+sudoer
+아나콘다(리눅스버전) 설치 주소 복붙 하면 설치됨
+사이트 참조
+-----------------------------------()
+아나콘다 비번없이 들어가기
+nohup jupyter lab --ip=192.168.56.101 --port=8888 --NotebookApp.token='' --NotebookApp.password='' &
+
+창에ip치면 나옴
+-----------------------------------()
+mkdir work_place  #make directory의 약자이며 원하는 이름으로 디렉토리를 생성
+
+입력되어있던 주소에 덧붙이기:/home/jhyu/sh
+
+###sh 명령어는 기본으로 지정된 쉘(shell)을 호출한다. (/bin/bash : 본 쉘)
+### ./ 명령어나 sh 명령어로 실행 가능하다. $sh abc.sh
+
+------------------------------------()
+내 아이디가 아나콘다3에 연결되면
+cd  ###chdir 은 디렉터리 변경(change directory), 운영체제에서 현재의 작업 디렉터리의 위치를 바꾸는 명령
+ls
+ll
+vi .bashrc    
+###.bashrc 파일은 사용자가 새 셸을 열 때마다 실행되는 셸 스크립트
+###리눅스에서 .bashrc 파일 수정 후 반드시 다시 로그인해야 적용 됨.
+###하지만 source ~/.bashrc 명령어를 실행하게 되면 터미널 종료 없이도 적용 가능
+
+mkdir ~/work_place #파일이 없으면 만들어질거고 있으면 만들 수 없다고 뜸
+cd ~/work_place
+nohup jupyter lab --ip=192.168.56.101 --port=8888 --NotebookApp.token='' --NotebookApp.password='' &
+###nohup 은 “no hangups” 라는 의미로, 리눅스/유닉스에서 쉘 스크립트파일을 데몬 형태로 실행시키는 명령어다. 
+###터미널이 끊겨도 실행한 프로세스는 계속 동작하게 한다. & 을 추가 해 백그라운드로 실행시킨다.
+
+-------????놓침
+vi note  ###vi의 세 가지 모드(명령, 입력, ex 모드)
+chmod +x note   ###chmod +x on a file (your script) only means, that you'll make it executable(실행가능한)
+vi ~/bashrc
+la -al #만들어진 파일 보여 줌
+vi ~/.bashrc
+source ~/.bashrc
+cd ../sh
+ls
+--------------------re***************
+cd
+vi.bashrc
+source .bashrc
+note
+cd sh
+vi note(주소입력)
+cd
+note
+nohup: appending output to 'nohub.out' 이라고 뜨던가 ?ㅇㅇ 그럼 note실행 하면 뜸
+
+--------------------------------(점심)
+
+show database;
+alter user 'root'@'localhost' identified by 'Bigdata123!!';  ###mysql -u root -p의 비번지정
+alter user '아이디'@'localhost' identified by '비번'; 
+
+show databases;
+
+use mysql;
+
+show tables;
+
+select * from proc;
+
+==
+
+select * from user;
+
+desc user;    ###desc 테이블명; 특정 테이블에 어떤 칼럼이 있는지 구조가 무엇인지 조회
+
+select host, user from user;
+
+quit;
+
+mysql -u root -p
+
+Bigdata123!!
+
+;
+
+show databases;
+
+select * from innodb_sys_direct;
+
+quit;
+
+
+su jhyu #로그인 변경
+
+su - #root아이디로 들어옴
+
+###Substitute User의 줄임말로 현재 사용자를 로그아웃 하지 않고, 다른 사용자의 권한을 획득할 때 사용
+###패키지를 설치, 시스템 설정 파일 수정, 신규 사용자 추가 등과 같은 관리 작업을 수행하기 위해 사용자의 권한을 root로 변경하는데 이용
+
+
+#권한부여
+grant all privileges on *.* to 'bigdata'@'*' identified by 'Bigdata123!!';   # -에게 모든 특권을 승인하다
+grant all on *.* to 'bigdata'@'%' with grant option;  #WITH GRANT OPTION: 이 옵션을 사용하면 TO 절의 대상도 자신이 받은 권한을 다른 유저에게 부여할수 있다
+create database bigdata;
+
+
+
+
+
+wget https://downloads.mysql.com/docs/sakila-db.tar.gz
+###'Web Get'의 약어로 웹 상의 파일을 다운로드 받을 때 사용
+
+tar zxvf sakila-db .tar.gz 
+
+ls  ###list directory contents에서 유래된 명령어로 해당 디렉토리 내에 있는 디렉토리 및 파일을 화면에 출력
+
+cd sakila-db #설치된거 확인용?
+sakila.mwb  #MWB 파일은 데이터베이스가 개발되는 동안 작업 진행률을 저장하는 데 사용
+
+mysql -u bigdata -p #나 bigdata말고 root에 깐것같은디?? 입력을./ㄴㄴ두개유저를만듦;;; 비번은 Bigdata123!!
+
+mysql> source sakila-schema.sql; ### 소스줌
+mysql> source sakila-data.sql;
+
+-------------
